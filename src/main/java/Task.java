@@ -5,14 +5,12 @@ public class Task {
     private static int totalTasksNumber;
 
     public Task() {
-       this("", 0);
+       this("");
     }
 
-    public Task(String taskDesc, int taskNumber) {
+    public Task(String taskDesc) {
         this.taskDesc = taskDesc;
-        this.taskNumber = taskNumber;
-
-        totalTasksNumber++;
+        this.taskNumber = totalTasksNumber++;
     }
 
     public String getTaskDesc() {
@@ -23,15 +21,15 @@ public class Task {
         this.taskDesc = taskDesc;
     }
 
-    public String toString() {
-        return (taskNumber+1) + ". " + taskDesc;
-    }
-
     public static void setTotalTasksNumber(int totalTasksNumber) {
         Task.totalTasksNumber = totalTasksNumber;
     }
 
     public static int getTotalTasksNumber() {
         return totalTasksNumber;
+    }
+
+    public String toString() {
+        return (taskNumber+1) + ". " + taskDesc;
     }
 }

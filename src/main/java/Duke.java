@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Duke {
     final static String BREAK = System.lineSeparator();
     final static String TAB = "    ";
-    final static String BORDER = TAB + "____________________________________________________________";
+    final static String BORDER = "    ____________________________________________________________";
     final static int MAX_TASKS = 100;
 
     static Task[] tasks;
@@ -57,7 +57,7 @@ public class Duke {
                 break;
             default:
                 int taskNumber = Task.getTotalTasksNumber();
-                tasks[taskNumber] = new Task(userInputLine, taskNumber);
+                tasks[taskNumber] = new Task(userInputLine);
                 printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
                 break;
             }
