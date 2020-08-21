@@ -33,16 +33,16 @@ public class Duke {
             if (userInputLine.matches("done [0-9]")) {
                 if (taskManager.checkedTask(userInputLine) > 0) {
                     String desc = TAB + "Nice! I've marked this task as done:";
-                    printWithWrappingBorders(desc + BREAK + taskManager.tasksToString());
+                    printBetwBorders(desc + BREAK + taskManager.tasksToString());
                 }
             } else if (userInputLine.equalsIgnoreCase("bye")) {
                 break;
             } else if (userInputLine.equalsIgnoreCase("list")) {
                 String desc = TAB + "Here are the tasks in your list:";
-                printWithWrappingBorders(desc + BREAK + taskManager.tasksToString());
+                printBetwBorders(desc + BREAK + taskManager.tasksToString());
             } else {
                 taskManager.addTask(userInputLine);
-                printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
+                printBetwBorders(TAB + "added: " + userInputLine + BREAK);
             }
         }
     }
@@ -54,13 +54,12 @@ public class Duke {
         System.out.println(BORDER);
     }
 
-
     private static void farewell() {
         String farewell = TAB + "Bye. Hope to see you again soon!" + BREAK;
-        printWithWrappingBorders(farewell);
+        printBetwBorders(farewell);
     }
 
-    private static void printWithWrappingBorders(String lineBlock) {
+    private static void printBetwBorders(String lineBlock) {
         System.out.println(BORDER);
         System.out.print(lineBlock);
         System.out.println(BORDER);
