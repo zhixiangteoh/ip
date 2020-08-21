@@ -23,6 +23,14 @@ public class Task {
         this.taskDesc = taskDesc;
     }
 
+    public int getTaskNumber() {
+        return taskNumber;
+    }
+
+    public void setTaskNumber(int taskNumber) {
+        this.taskNumber = taskNumber;
+    }
+
     public boolean isDone() {
         return isDone;
     }
