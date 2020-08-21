@@ -45,12 +45,14 @@ public class Duke {
                 int taskDoneNumber = Integer.parseInt(digitString);
                 if (taskDoneNumber > 0) {
                     tasks[taskDoneNumber].setDone(true);
-                    printTasks();
+                    String desc = TAB + "Nice! I've marked this task as done:";
+                    printWithWrappingBorders(desc + BREAK + tasksToString());
                 }
             } else {
                 switch (userInputLine) {
                 case "list":
-                    printTasks();
+                    String desc = TAB + "Here are the tasks in your list:";
+                    printWithWrappingBorders(desc + BREAK + tasksToString());
                     break;
                 case "bye":
                     isBye = true;
@@ -70,7 +72,7 @@ public class Duke {
         printWithWrappingBorders(farewell);
     }
 
-    private static void printTasks() {
+    private static String tasksToString() {
         StringBuilder taskList = new StringBuilder();
         for (Task task : tasks) {
             if (task != null) {
@@ -79,7 +81,7 @@ public class Duke {
                 taskList.append(BREAK);
             }
         }
-        printWithWrappingBorders(taskList.toString());
+        return taskList.toString();
     }
 
     private static void printWithWrappingBorders(String lineBlock) {
