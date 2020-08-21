@@ -1,6 +1,7 @@
 public class Task {
     private String taskDesc;
     private int taskNumber;
+    private boolean isDone;
 
     private static int totalTasksNumber;
 
@@ -11,6 +12,7 @@ public class Task {
     public Task(String taskDesc) {
         this.taskDesc = taskDesc;
         this.taskNumber = totalTasksNumber++;
+        this.isDone = false;
     }
 
     public String getTaskDesc() {
@@ -19,6 +21,14 @@ public class Task {
 
     public void setTaskDesc(String taskDesc) {
         this.taskDesc = taskDesc;
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
     }
 
     public static void setTotalTasksNumber(int totalTasksNumber) {
@@ -30,6 +40,7 @@ public class Task {
     }
 
     public String toString() {
-        return (taskNumber+1) + ". " + taskDesc;
+        String checkBox = (isDone) ? "[✓]" : "[✗]";
+        return taskNumber + ". " + checkBox + " " + taskDesc;
     }
 }

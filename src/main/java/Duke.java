@@ -36,30 +36,31 @@ public class Duke {
 
     private static void interact(Scanner in) {
         boolean isBye = false;
-        Task.setTotalTasksNumber(0);
+        Task.setTotalTasksNumber(1); // implementation decision
         while (!isBye && in.hasNextLine()) {
             String userInputLine = in.nextLine();
 
-            switch (userInputLine) {
-            case "list":
-                StringBuilder taskList = new StringBuilder();
-                for (Task task : tasks) {
-                    if (task != null) {
-                        taskList.append(TAB);
-                        taskList.append(task.toString());
-                        taskList.append(BREAK);
-                    }
+            if (userInputLine.matches("done [0-9]")) {
+                String digitString = userInputLine.substring(5); // 5 is where digit starts
+                int taskDoneNumber = Integer.parseInt(digitString);
+                if (taskDoneNumber > 0) {
+                    tasks[taskDoneNumber].setDone(true);
+                    printTasks();
                 }
-                printWithWrappingBorders(taskList.toString());
-                break;
-            case "bye":
-                isBye = true;
-                break;
-            default:
-                int taskNumber = Task.getTotalTasksNumber();
-                tasks[taskNumber] = new Task(userInputLine);
-                printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
-                break;
+            } else {
+                switch (userInputLine) {
+                case "list":
+                    printTasks();
+                    break;
+                case "bye":
+                    isBye = true;
+                    break;
+                default:
+                    int taskNumber = Task.getTotalTasksNumber();
+                    tasks[taskNumber] = new Task(userInputLine);
+                    printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
+                    break;
+                }
             }
         }
     }
@@ -67,6 +68,18 @@ public class Duke {
     private static void farewell() {
         String farewell = TAB + "Bye. Hope to see you again soon!" + BREAK;
         printWithWrappingBorders(farewell);
+    }
+
+    private static void printTasks() {
+        StringBuilder taskList = new StringBuilder();
+        for (Task task : tasks) {
+            if (task != null) {
+                taskList.append(TAB);
+                taskList.append(task.toString());
+                taskList.append(BREAK);
+            }
+        }
+        printWithWrappingBorders(taskList.toString());
     }
 
     private static void printWithWrappingBorders(String lineBlock) {
