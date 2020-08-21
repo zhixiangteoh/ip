@@ -36,10 +36,9 @@ public class Duke {
 
     private static void interact(Scanner in) {
         boolean isBye = false;
-        int taskNumber = 0;
+        Task.setTotalTasksNumber(0);
         while (!isBye && in.hasNextLine()) {
             String userInputLine = in.nextLine();
-//            System.out.println(userInputLine);
 
             switch (userInputLine) {
             case "list":
@@ -57,7 +56,8 @@ public class Duke {
                 isBye = true;
                 break;
             default:
-                tasks[taskNumber++] = new Task(userInputLine, taskNumber);
+                int taskNumber = Task.getTotalTasksNumber();
+                tasks[taskNumber] = new Task(userInputLine, taskNumber);
                 printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
                 break;
             }
