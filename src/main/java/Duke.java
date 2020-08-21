@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
 public class Duke {
+    final static String BREAK = System.lineSeparator();
     final static String TAB = "    ";
     final static String BORDER = TAB + "____________________________________________________________";
+    final static int MAX_TASKS = 100;
+
+    static Task[] tasks;
 
     public static void main(String[] args) {
         String logo = " ____            _\n"
@@ -16,37 +20,58 @@ public class Duke {
 
         // create input scanner
         Scanner in = new Scanner(System.in);
-        echo(in);
+        tasks = new Task[MAX_TASKS];
+        interact(in);
         in.close();
 
         farewell();
     }
 
     private static void greet() {
-        String greeting = TAB + "Hello! I'm Dude\n"
+        String greeting = TAB + "Hello! I'm Dude" + BREAK
                         + TAB + "What can I do for you?";
         System.out.println(greeting);
         System.out.println(BORDER);
     }
 
-    private static void echo(Scanner in) {
-        while (in.hasNextLine()) {
+    private static void interact(Scanner in) {
+        boolean isBye = false;
+        int taskNumber = 0;
+        while (!isBye && in.hasNextLine()) {
             String userInputLine = in.nextLine();
+//            System.out.println(userInputLine);
 
-            if (!userInputLine.equalsIgnoreCase("bye")) {
-                System.out.println(BORDER);
-                System.out.println(TAB + userInputLine);
-                System.out.println(BORDER);
-            } else {
+            switch (userInputLine) {
+            case "list":
+                StringBuilder taskList = new StringBuilder();
+                for (Task task : tasks) {
+                    if (task != null) {
+                        taskList.append(TAB);
+                        taskList.append(task.toString());
+                        taskList.append(BREAK);
+                    }
+                }
+                printWithWrappingBorders(taskList.toString());
+                break;
+            case "bye":
+                isBye = true;
+                break;
+            default:
+                tasks[taskNumber++] = new Task(userInputLine, taskNumber);
+                printWithWrappingBorders(TAB + "added: " + userInputLine + BREAK);
                 break;
             }
         }
     }
 
     private static void farewell() {
-        String farewell = TAB + "Bye. Hope to see you again soon!";
+        String farewell = TAB + "Bye. Hope to see you again soon!" + BREAK;
+        printWithWrappingBorders(farewell);
+    }
+
+    private static void printWithWrappingBorders(String lineBlock) {
         System.out.println(BORDER);
-        System.out.println(farewell);
+        System.out.print(lineBlock);
         System.out.println(BORDER);
     }
 }
