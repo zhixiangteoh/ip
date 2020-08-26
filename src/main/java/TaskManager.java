@@ -1,6 +1,6 @@
 public class TaskManager {
     private Task[] tasks;
-    private final static int MAX_TASKS = 100;
+    private static final int MAX_TASKS = 100;
 
     public TaskManager() {
         tasks = new Task[MAX_TASKS];

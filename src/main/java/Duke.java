@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Duke {
-    final static String BREAK = System.lineSeparator();
-    final static String TAB = "    ";
-    final static String BORDER = "    ____________________________________________________________";
+    static final String BREAK = System.lineSeparator();
+    static final String TAB = "    ";
+    static final String BORDER = "    ____________________________________________________________";
 
     static TaskManager taskManager;
 
