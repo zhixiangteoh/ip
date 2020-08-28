@@ -14,12 +14,18 @@ todo buy groceries /at Sunday 2pm ///
 list
 done 10
 todo buy groceries /atSunday 2pm/ /at/
+deadline buy groceries                      ## ERROR!!!
 deadlinebuy groceries
 deAdLinebuYg; roceries! /by 2pm
 deadline buy groceries /by Sunday 2pm
 deadline buy groceries /by Sunday 2pm ///
+deadline buy groceries /at Sunday 2pm ///   ## ERROR!!!
+deadline buy groceries /atSunday 2pm/ /at/  ## ERROR!!!
+event buy groceries                         ## ERROR!!!
 eventbuy groceries
 eVenTbuYg; roceries! /by 2pm
+event buy groceries /by Sunday 2pm          ## ERROR!!!
+event buy groceries /by Sunday 2pm ///      ## ERROR!!!
 event buy groceries /at Sunday 2pm ///
 event buy groceries /atSunday 2pm/ /at/
 bye!
