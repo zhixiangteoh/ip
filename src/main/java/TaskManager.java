@@ -29,7 +29,7 @@ public class TaskManager {
         } else if (taskType.equals("todo")) {
             taskAdded = new ToDo(taskDesc, currentTaskNumber);
         } else {
-            taskAdded = new Task(taskDesc, currentTaskNumber);
+            taskAdded = new Task(userInputLine, currentTaskNumber);
         }
         tasks[totalTasksNumber] = taskAdded;
 
