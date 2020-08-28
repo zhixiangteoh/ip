@@ -3,15 +3,13 @@ public class Task {
     private int taskNumber;
     private boolean isDone;
 
-    private static int totalTasksNumber;
-
     public Task() {
-       this("");
+        this("", 0);
     }
 
-    public Task(String taskDesc) {
+    public Task(String taskDesc, int taskNumber) {
         this.taskDesc = taskDesc;
-        this.taskNumber = totalTasksNumber++;
+        this.taskNumber = taskNumber;
         this.isDone = false;
     }
 
@@ -37,14 +35,6 @@ public class Task {
 
     public void setDone(boolean done) {
         isDone = done;
-    }
-
-    public static void setTotalTasksNumber(int totalTasksNumber) {
-        Task.totalTasksNumber = totalTasksNumber;
-    }
-
-    public static int getTotalTasksNumber() {
-        return totalTasksNumber;
     }
 
     public String toString() {

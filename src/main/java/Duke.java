@@ -30,21 +30,43 @@ public class Duke {
         while (in.hasNextLine()) {
             String userInputLine = in.nextLine();
 
-            if (userInputLine.matches("done [0-9]")) {
-                if (taskManager.checkedTask(userInputLine) > 0) {
-                    String desc = TAB + "Nice! I've marked this task as done:";
-                    printBetwBorders(desc + BREAK + taskManager.tasksToString());
-                }
-            } else if (userInputLine.equalsIgnoreCase("bye")) {
+            if (inputIsBye(userInputLine)) {
                 break;
-            } else if (userInputLine.equalsIgnoreCase("list")) {
-                String desc = TAB + "Here are the tasks in your list:";
-                printBetwBorders(desc + BREAK + taskManager.tasksToString());
+            } else if (inputIsList(userInputLine)) {
+                listTasks("Here are the tasks in your list:");
+            } else if (inputIsDone(userInputLine) && taskIsChecked(userInputLine)) {
+                listTasks("Nice! I've marked this task as done:");
             } else {
                 taskManager.addTask(userInputLine);
-                printBetwBorders(TAB + "added: " + userInputLine + BREAK);
+                showAddTask(userInputLine);
             }
         }
+    }
+
+    private static void showAddTask(String userInputLine) {
+        printBetwBorders(TAB + "Got it. I've added this task: " + BREAK
+                + userInputLine + BREAK);
+    }
+
+    private static boolean taskIsChecked(String userInputLine) {
+        return taskManager.checkTask(userInputLine) > 0;
+    }
+
+    private static void listTasks(String s) {
+        String desc = TAB + s;
+        printBetwBorders(desc + BREAK + taskManager.tasksToString());
+    }
+
+    private static boolean inputIsDone(String userInputLine) {
+        return userInputLine.matches("done [0-9]");
+    }
+
+    private static boolean inputIsList(String userInputLine) {
+        return userInputLine.equalsIgnoreCase("list");
+    }
+
+    private static boolean inputIsBye(String userInputLine) {
+        return userInputLine.equalsIgnoreCase("bye");
     }
 
     private static void greet() {
