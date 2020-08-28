@@ -39,6 +39,6 @@ public class Task {
 
     public String toString() {
         String checkBox = (isDone) ? "[✓]" : "[✗]";
-        return taskNumber + ". " + checkBox + " " + taskDesc;
+        return checkBox + " " + taskDesc;
     }
 }

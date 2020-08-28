@@ -1,5 +1,15 @@
 public class ToDo extends Task {
-    public ToDo(String userInputLine, int totalTasksNumber) {
-        super(userInputLine, totalTasksNumber);
+    private String typeBox;
+
+    public ToDo(String taskDesc, int totalTasksNumber) {
+        super(taskDesc, totalTasksNumber);
+        typeBox = "[T]";
+    }
+
+    @Override
+    public String toString() {
+        String checkBox = (isDone()) ? "[✓]" : "[✗]";
+        // [T][x] eat
+        return typeBox + checkBox + " " + getTaskDesc();
     }
 }

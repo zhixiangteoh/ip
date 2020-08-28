@@ -5,7 +5,7 @@ public class Duke {
     static final String TAB = "    ";
     static final String BORDER = "    ____________________________________________________________";
 
-    static TaskManager taskManager;
+    private static TaskManager taskManager;
 
     public static void main(String[] args) {
         String logo = " ____            _\n"
@@ -37,15 +37,17 @@ public class Duke {
             } else if (inputIsDone(userInputLine) && taskIsChecked(userInputLine)) {
                 listTasks("Nice! I've marked this task as done:");
             } else {
-                taskManager.addTask(userInputLine);
-                showAddTask(userInputLine);
+                Task taskAdded = taskManager.addTask(userInputLine);
+                showAddTask(taskAdded);
             }
         }
     }
 
-    private static void showAddTask(String userInputLine) {
-        printBetwBorders(TAB + "Got it. I've added this task: " + BREAK
-                + userInputLine + BREAK);
+    private static void showAddTask(Task task) {
+        String firstLine = TAB + "Got it. I've added this task: " + BREAK;
+        String secondLine = TAB + "  " + task.toString() + BREAK;
+        String thirdLine = TAB + "Now you have " + taskManager.getTotalTasksNumber() + " tasks in the list." + BREAK;
+        printBetwBorders(firstLine + secondLine + thirdLine);
     }
 
     private static boolean taskIsChecked(String userInputLine) {
@@ -58,7 +60,7 @@ public class Duke {
     }
 
     private static boolean inputIsDone(String userInputLine) {
-        return userInputLine.matches("done [0-9]");
+        return userInputLine.matches("done ([0-9]+)");
     }
 
     private static boolean inputIsList(String userInputLine) {
