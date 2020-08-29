@@ -9,32 +9,32 @@ Hello from
     What can I do for you?
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] eat 20 plates of chicken rice
     Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] sleep
     Now you have 2 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] go shopping
     Now you have 3 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries
     Now you have 4 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] todobuy groceries
     Now you have 5 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] toDobuYg; roceries! /by 2pm
     Now you have 6 tasks in the list.
     ____________________________________________________________
@@ -48,7 +48,7 @@ Hello from
     6.[✗] toDobuYg; roceries! /by 2pm
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries /by Sunday 2pm
     Now you have 7 tasks in the list.
     ____________________________________________________________
@@ -69,21 +69,21 @@ Hello from
     3.[✗] go shopping
     4.[T][✗] buy groceries
     5.[✓] todobuy groceries
-    6.[✗] toDobuYg; roceries! /by 2pm
-    7.[T][✓] buy groceries /by Sunday 2pm
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries /by Sunday 2pm ///
     Now you have 8 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries /at Sunday 2pm
     Now you have 9 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries /at Sunday 2pm ///
     Now you have 10 tasks in the list.
     ____________________________________________________________
@@ -94,8 +94,8 @@ Hello from
     3.[✗] go shopping
     4.[T][✗] buy groceries
     5.[✓] todobuy groceries
-    6.[✗] toDobuYg; roceries! /by 2pm
-    7.[T][✓] buy groceries /by Sunday 2pm
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
     8.[T][✗] buy groceries /by Sunday 2pm ///
     9.[T][✗] buy groceries /at Sunday 2pm
     10.[T][✗] buy groceries /at Sunday 2pm ///
@@ -103,63 +103,63 @@ Hello from
     ____________________________________________________________
     Nice! I've marked this task as done:
     1.[✗] eat 20 plates of chicken rice
-    2.[✗] sleep
+    2.[✓] sleep
     3.[✗] go shopping
     4.[T][✗] buy groceries
     5.[✓] todobuy groceries
-    6.[✗] toDobuYg; roceries! /by 2pm
-    7.[T][✓] buy groceries /by Sunday 2pm
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
     8.[T][✗] buy groceries /by Sunday 2pm ///
     9.[T][✗] buy groceries /at Sunday 2pm
-    10.[T][✓] buy groceries /at Sunday 2pm ///
+    10.[T][✗] buy groceries /at Sunday 2pm ///
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [T][✗] buy groceries /atSunday 2pm/ /at/
     Now you have 11 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] deadlinebuy groceries
     Now you have 12 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] deAdLinebuYg; roceries! /by 2pm
     Now you have 13 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [D][✗] buy groceries (by: Sunday 2pm)
     Now you have 14 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [D][✗] buy groceries (by: Sunday 2pm ///)
     Now you have 15 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] eventbuy groceries
     Now you have 16 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] eVenTbuYg; roceries! /by 2pm
     Now you have 17 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [E][✗] buy groceries (at: Sunday 2pm ///)
     Now you have 18 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [E][✗] buy groceries (at:Sunday 2pm/ /at/)
     Now you have 19 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-    Got it. I've added this task: 
+    Got it. I've added this task:
       [✗] bye!
     Now you have 20 tasks in the list.
     ____________________________________________________________

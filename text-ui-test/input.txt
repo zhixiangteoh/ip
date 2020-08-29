@@ -7,12 +7,12 @@ toDobuYg; roceries! /by 2pm
 list
 todo buy groceries /by Sunday 2pm
 done 5
-done 7
+done 6
 todo buy groceries /by Sunday 2pm ///
 todo buy groceries /at Sunday 2pm
 todo buy groceries /at Sunday 2pm ///
 list
-done 10
+done 2
 todo buy groceries /atSunday 2pm/ /at/
 deadlinebuy groceries
 deAdLinebuYg; roceries! /by 2pm
