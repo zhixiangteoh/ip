@@ -8,24 +8,16 @@ public class Duke {
     private static TaskManager taskManager;
 
     public static void main(String[] args) {
-        String logo = " ____            _\n"
-                + "|  _ \\ _   _   _| | ___\n"
-                + "| | | | | | |/ _  |/ _ \\\n"
-                + "| |_| | |_| | |_| |  __/\n"
-                + "|____/ \\__,_|\\____|\\___|";
-        System.out.println("Hello from\n" + logo);
-        System.out.println(BORDER);
+        showLogo();
         greet();
-
-        // create input scanner
-        Scanner in = new Scanner(System.in);
-        interact(in);
-        in.close();
-
-        farewell();
+        interact();
+        sayBye();
     }
 
-    private static void interact(Scanner in) {
+    private static void interact() {
+        // create input scanner
+        Scanner in = new Scanner(System.in);
+
         taskManager = new TaskManager();
         while (in.hasNextLine()) {
             String userInputLine = in.nextLine();
@@ -41,17 +33,19 @@ public class Duke {
                 showAddTask(taskAdded);
             }
         }
+
+        in.close();
     }
 
     private static void showAddTask(Task task) {
-        String firstLine = TAB + "Got it. I've added this task: " + BREAK;
-        String secondLine = TAB + "  " + task.toString() + BREAK;
-        String thirdLine = TAB + "Now you have " + taskManager.getTotalTasksNumber() + " tasks in the list." + BREAK;
-        printBetwBorders(firstLine + secondLine + thirdLine);
+        String prologue = TAB + "Got it. I've added this task:" + BREAK;
+        String content = TAB + "  " + task.toString() + BREAK;
+        String epilogue = TAB + "Now you have " + taskManager.getTotalTasksNumber() + " tasks in the list." + BREAK;
+        printBetwBorders(prologue + content + epilogue);
     }
 
     private static boolean taskIsChecked(String userInputLine) {
-        return taskManager.checkTask(userInputLine) > 0;
+        return taskManager.taskIsChecked(userInputLine);
     }
 
     private static void listTasks(String s) {
@@ -71,6 +65,16 @@ public class Duke {
         return userInputLine.equalsIgnoreCase("bye");
     }
 
+    private static void showLogo() {
+        String logo = " ____            _\n"
+                + "|  _ \\ _   _   _| | ___\n"
+                + "| | | | | | |/ _  |/ _ \\\n"
+                + "| |_| | |_| | |_| |  __/\n"
+                + "|____/ \\__,_|\\____|\\___|";
+        System.out.println("Hello from\n" + logo);
+        System.out.println(BORDER);
+    }
+
     private static void greet() {
         String greeting = TAB + "Hello! I'm Dude" + BREAK
                 + TAB + "What can I do for you?";
@@ -78,9 +82,9 @@ public class Duke {
         System.out.println(BORDER);
     }
 
-    private static void farewell() {
-        String farewell = TAB + "Bye. Hope to see you again soon!" + BREAK;
-        printBetwBorders(farewell);
+    private static void sayBye() {
+        String sayBye = TAB + "Bye. Hope to see you again soon!" + BREAK;
+        printBetwBorders(sayBye);
     }
 
     private static void printBetwBorders(String lineBlock) {

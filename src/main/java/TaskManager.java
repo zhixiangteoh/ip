@@ -13,13 +13,8 @@ public class TaskManager {
     }
 
     public Task addTask(String userInputLine) {
-        String taskType = "";
-        String taskDesc = userInputLine;
-        if (userInputLine.contains(" ")) {
-            String[] splitInput = userInputLine.split(" ", 2);
-            taskType = splitInput[0];
-            taskDesc = splitInput[1];
-        }
+        String taskType = getTypeFromInput(userInputLine);
+        String taskDesc = getDescFromInput(userInputLine);
 
         Task taskAdded;
         if (taskType.equals("deadline")) {
@@ -39,18 +34,42 @@ public class TaskManager {
         return taskAdded;
     }
 
+    private String getTypeFromInput(String userInputLine) {
+        String taskType = "";
+        if (taskHasType(userInputLine)) {
+            taskType = splitInput(userInputLine)[0];
+        }
+        return taskType;
+    }
+
+    private String getDescFromInput(String userInputLine) {
+        String taskType = "";
+        if (taskHasType(userInputLine)) {
+            taskType = splitInput(userInputLine)[1];
+        }
+        return taskType;
+    }
+
+    private String[] splitInput(String userInputLine) {
+        return userInputLine.split(" ", 2);
+    }
+
+    private boolean taskHasType(String userInputLine) {
+        return userInputLine.contains(" ");
+    }
+
     public static int getTotalTasksNumber() {
         return totalTasksNumber;
     }
 
-    public int checkTask(String userInputLine) {
+    public boolean taskIsChecked(String userInputLine) {
         String digitString = userInputLine.substring("done ".length()); // 5 is where digit starts
         int taskDoneNumber = Integer.parseInt(digitString);
         if (taskDoneNumber > 0) {
             tasks[taskDoneNumber - 1].setDone(true);
-            return taskDoneNumber;
+            return true;
         }
-        return -1;
+        return false;
     }
 
     public String tasksToString() {
