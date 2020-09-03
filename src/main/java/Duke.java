@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Duke {
+    public static final String HALF_TAB = "  ";
     static final String BREAK = System.lineSeparator();
     static final String TAB = "    ";
     static final String BORDER = "    ____________________________________________________________";
@@ -26,8 +27,11 @@ public class Duke {
                 break;
             } else if (inputIsList(userInputLine)) {
                 listTasks("Here are the tasks in your list:");
-            } else if (inputIsDone(userInputLine) && taskIsChecked(userInputLine)) {
-                listTasks("Nice! I've marked this task as done:");
+            } else if (inputIsDone(userInputLine)) {
+                Task doneTask = taskManager.taskChecked(userInputLine);
+                if (taskIsChecked(doneTask)) {
+                    listDoneTask("Nice! I've marked this task as done:", doneTask);
+                }
             } else {
                 Task taskAdded = taskManager.addTask(userInputLine);
                 showAddTask(taskAdded);
@@ -39,18 +43,24 @@ public class Duke {
 
     private static void showAddTask(Task task) {
         String prologue = TAB + "Got it. I've added this task:" + BREAK;
-        String content = TAB + "  " + task.toString() + BREAK;
+        String content = TAB + HALF_TAB + task.toString() + BREAK;
         String epilogue = TAB + "Now you have " + taskManager.getTotalTasksNumber() + " tasks in the list." + BREAK;
         printBetwBorders(prologue + content + epilogue);
     }
 
-    private static boolean taskIsChecked(String userInputLine) {
-        return taskManager.taskIsChecked(userInputLine);
+    private static boolean taskIsChecked(Task doneTask) {
+        return doneTask != null;
     }
 
     private static void listTasks(String s) {
         String desc = TAB + s;
         printBetwBorders(desc + BREAK + taskManager.tasksToString());
+    }
+
+    private static void listDoneTask(String s, Task doneTask) {
+        String desc = TAB + s;
+        printBetwBorders(desc + BREAK
+                        + TAB + HALF_TAB + doneTask + BREAK);
     }
 
     private static boolean inputIsDone(String userInputLine) {

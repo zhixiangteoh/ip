@@ -62,14 +62,14 @@ public class TaskManager {
         return totalTasksNumber;
     }
 
-    public boolean taskIsChecked(String userInputLine) {
+    public Task taskChecked(String userInputLine) {
         String digitString = userInputLine.substring("done ".length()); // 5 is where digit starts
         int taskDoneNumber = Integer.parseInt(digitString);
         if (taskDoneNumber > 0) {
             tasks[taskDoneNumber - 1].setDone(true);
-            return true;
+            return tasks[taskDoneNumber - 1];
         }
-        return false;
+        return null;
     }
 
     public String tasksToString() {
