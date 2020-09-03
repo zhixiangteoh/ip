@@ -54,23 +54,11 @@ Hello from
     ____________________________________________________________
     ____________________________________________________________
     Nice! I've marked this task as done:
-    1.[✗] eat 20 plates of chicken rice
-    2.[✗] sleep
-    3.[✗] go shopping
-    4.[T][✗] buy groceries
-    5.[✓] todobuy groceries
-    6.[✗] toDobuYg; roceries! /by 2pm
-    7.[T][✗] buy groceries /by Sunday 2pm
+      [✓] todobuy groceries
     ____________________________________________________________
     ____________________________________________________________
     Nice! I've marked this task as done:
-    1.[✗] eat 20 plates of chicken rice
-    2.[✗] sleep
-    3.[✗] go shopping
-    4.[T][✗] buy groceries
-    5.[✓] todobuy groceries
-    6.[✓] toDobuYg; roceries! /by 2pm
-    7.[T][✗] buy groceries /by Sunday 2pm
+      [✓] toDobuYg; roceries! /by 2pm
     ____________________________________________________________
     ____________________________________________________________
     Got it. I've added this task:
@@ -102,16 +90,7 @@ Hello from
     ____________________________________________________________
     ____________________________________________________________
     Nice! I've marked this task as done:
-    1.[✗] eat 20 plates of chicken rice
-    2.[✓] sleep
-    3.[✗] go shopping
-    4.[T][✗] buy groceries
-    5.[✓] todobuy groceries
-    6.[✓] toDobuYg; roceries! /by 2pm
-    7.[T][✗] buy groceries /by Sunday 2pm
-    8.[T][✗] buy groceries /by Sunday 2pm ///
-    9.[T][✗] buy groceries /at Sunday 2pm
-    10.[T][✗] buy groceries /at Sunday 2pm ///
+      [✓] sleep
     ____________________________________________________________
     ____________________________________________________________
     Got it. I've added this task:
