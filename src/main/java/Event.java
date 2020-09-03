@@ -16,8 +16,7 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        String checkBox = (isDone()) ? "[✓]" : "[✗]";
         // [E][x] eat (at: 10am)
-        return typeBox + checkBox + " " + getTaskDesc();
+        return typeBox + getCheckBox() + " " + getTaskDesc();
     }
 }

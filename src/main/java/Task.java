@@ -1,7 +1,11 @@
 public class Task {
+    private static final String TICK = "[✓]";
+    private static final String CROSS = "[✗]";
+
     private String taskDesc;
     private int taskNumber;
     private boolean isDone;
+    private String checkBox;
 
     public Task() {
         this("", 0);
@@ -35,10 +39,14 @@ public class Task {
 
     public void setDone(boolean done) {
         isDone = done;
+        checkBox = (isDone) ? TICK : CROSS;
+    }
+
+    public String getCheckBox() {
+        return checkBox;
     }
 
     public String toString() {
-        String checkBox = (isDone) ? "[✓]" : "[✗]";
         return checkBox + " " + taskDesc;
     }
 }

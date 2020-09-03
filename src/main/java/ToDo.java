@@ -8,8 +8,7 @@ public class ToDo extends Task {
 
     @Override
     public String toString() {
-        String checkBox = (isDone()) ? "[✓]" : "[✗]";
         // [T][x] eat
-        return typeBox + checkBox + " " + getTaskDesc();
+        return typeBox + getCheckBox() + " " + getTaskDesc();
     }
 }

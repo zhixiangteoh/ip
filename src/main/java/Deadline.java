@@ -16,8 +16,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        String checkBox = (isDone()) ? "[✓]" : "[✗]";
         // [D][x] eat (by: 10am)
-        return typeBox + checkBox + " " + getTaskDesc();
+        return typeBox + getCheckBox() + " " + getTaskDesc();
     }
 }
