@@ -39,14 +39,14 @@ public class Task {
 
     public void setDone(boolean done) {
         isDone = done;
-        checkBox = (isDone) ? TICK : CROSS;
     }
 
     public String getCheckBox() {
-        return checkBox;
+        return (isDone) ? TICK : CROSS;
     }
 
     public String toString() {
+        checkBox = (isDone) ? TICK : CROSS;
         return checkBox + " " + taskDesc;
     }
 }
