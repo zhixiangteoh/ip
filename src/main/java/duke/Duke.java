@@ -1,10 +1,14 @@
+package duke;
+
+import duke.task.Task;
+
 import java.util.Scanner;
 
 public class Duke {
     public static final String HALF_TAB = "  ";
-    static final String BREAK = System.lineSeparator();
-    static final String TAB = "    ";
-    static final String BORDER = "    ____________________________________________________________";
+    public static final String BREAK = System.lineSeparator();
+    public static final String TAB = "    ";
+    public static final String BORDER = "    ____________________________________________________________";
 
     private static TaskManager taskManager;
 
@@ -33,12 +37,29 @@ public class Duke {
                     listDoneTask("Nice! I've marked this task as done:", doneTask);
                 }
             } else {
-                Task taskAdded = taskManager.addTask(userInputLine);
-                showAddTask(taskAdded);
+                try {
+                    Task taskAdded = taskManager.addTask(userInputLine);
+                    showAddTask(taskAdded);
+                } catch (InvalidDescriptionException ide) {
+                    showInvalidDescMessage(ide);
+                } catch (InvalidCommandException ice) {
+                    showInvalidCommandMessage();
+                }
             }
         }
 
         in.close();
+    }
+
+    private static void showInvalidCommandMessage() {
+        String message = TAB + "☹ OOPS!!! I'm sorry, but I don't know what that means :-(" + BREAK;
+        printBetwBorders(message);
+    }
+
+    private static void showInvalidDescMessage(InvalidDescriptionException ide) {
+        String message = TAB + "☹ OOPS!!! The description of a(n) "
+                + ide.getTaskType() + " cannot be empty." + BREAK;
+        printBetwBorders(message);
     }
 
     private static void showAddTask(Task task) {
@@ -97,7 +118,7 @@ public class Duke {
         printBetwBorders(sayBye);
     }
 
-    private static void printBetwBorders(String lineBlock) {
+    public static void printBetwBorders(String lineBlock) {
         System.out.println(BORDER);
         System.out.print(lineBlock);
         System.out.println(BORDER);
