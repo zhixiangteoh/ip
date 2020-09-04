@@ -1,5 +1,7 @@
 package duke;
 
+import duke.exception.InvalidCommandException;
+import duke.exception.InvalidDescriptionException;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;

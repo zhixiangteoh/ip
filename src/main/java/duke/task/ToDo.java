@@ -1,7 +1,5 @@
 package duke.task;
 
-import duke.InvalidDescriptionException;
-
 public class ToDo extends Task {
     private String typeBox;
 

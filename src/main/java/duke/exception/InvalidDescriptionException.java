@@ -1,4 +1,4 @@
-package duke;
+package duke.exception;
 
 public class InvalidDescriptionException extends DukeException {
     private String taskType;
