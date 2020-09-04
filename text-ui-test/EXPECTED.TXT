@@ -138,9 +138,126 @@ Hello from
     Now you have 19 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) todo cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) todo cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) todo cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    Got it. I've added this task:
+      [✗] tododjadslkdfjsad
+    Now you have 20 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+    Here are the tasks in your list:
+    1.[✗] eat 20 plates of chicken rice
+    2.[✓] sleep
+    3.[✗] go shopping
+    4.[T][✗] buy groceries
+    5.[✓] todobuy groceries
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
+    8.[T][✗] buy groceries /by Sunday 2pm ///
+    9.[T][✗] buy groceries /at Sunday 2pm
+    10.[T][✗] buy groceries /at Sunday 2pm ///
+    11.[T][✗] buy groceries /atSunday 2pm/ /at/
+    12.[✗] deadlinebuy groceries
+    13.[✗] deAdLinebuYg; roceries! /by 2pm
+    14.[D][✗] buy groceries (by: Sunday 2pm)
+    15.[D][✗] buy groceries (by: Sunday 2pm ///)
+    16.[✗] eventbuy groceries
+    17.[✗] eVenTbuYg; roceries! /by 2pm
+    18.[E][✗] buy groceries (at: Sunday 2pm ///)
+    19.[E][✗] buy groceries (at:Sunday 2pm/ /at/)
+    20.[✗] tododjadslkdfjsad
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) event cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) event cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) event cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    Got it. I've added this task:
+      [✗] eventsjlkfjsadfdasdf
+    Now you have 21 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+    Here are the tasks in your list:
+    1.[✗] eat 20 plates of chicken rice
+    2.[✓] sleep
+    3.[✗] go shopping
+    4.[T][✗] buy groceries
+    5.[✓] todobuy groceries
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
+    8.[T][✗] buy groceries /by Sunday 2pm ///
+    9.[T][✗] buy groceries /at Sunday 2pm
+    10.[T][✗] buy groceries /at Sunday 2pm ///
+    11.[T][✗] buy groceries /atSunday 2pm/ /at/
+    12.[✗] deadlinebuy groceries
+    13.[✗] deAdLinebuYg; roceries! /by 2pm
+    14.[D][✗] buy groceries (by: Sunday 2pm)
+    15.[D][✗] buy groceries (by: Sunday 2pm ///)
+    16.[✗] eventbuy groceries
+    17.[✗] eVenTbuYg; roceries! /by 2pm
+    18.[E][✗] buy groceries (at: Sunday 2pm ///)
+    19.[E][✗] buy groceries (at:Sunday 2pm/ /at/)
+    20.[✗] tododjadslkdfjsad
+    21.[✗] eventsjlkfjsadfdasdf
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) deadline cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) deadline cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! The description of a(n) deadline cannot be empty.
+    ____________________________________________________________
+    ____________________________________________________________
+    Got it. I've added this task:
+      [✗] deadlinedajldkfjasl;kdffdsa
+    Now you have 22 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+    Here are the tasks in your list:
+    1.[✗] eat 20 plates of chicken rice
+    2.[✓] sleep
+    3.[✗] go shopping
+    4.[T][✗] buy groceries
+    5.[✓] todobuy groceries
+    6.[✓] toDobuYg; roceries! /by 2pm
+    7.[T][✗] buy groceries /by Sunday 2pm
+    8.[T][✗] buy groceries /by Sunday 2pm ///
+    9.[T][✗] buy groceries /at Sunday 2pm
+    10.[T][✗] buy groceries /at Sunday 2pm ///
+    11.[T][✗] buy groceries /atSunday 2pm/ /at/
+    12.[✗] deadlinebuy groceries
+    13.[✗] deAdLinebuYg; roceries! /by 2pm
+    14.[D][✗] buy groceries (by: Sunday 2pm)
+    15.[D][✗] buy groceries (by: Sunday 2pm ///)
+    16.[✗] eventbuy groceries
+    17.[✗] eVenTbuYg; roceries! /by 2pm
+    18.[E][✗] buy groceries (at: Sunday 2pm ///)
+    19.[E][✗] buy groceries (at:Sunday 2pm/ /at/)
+    20.[✗] tododjadslkdfjsad
+    21.[✗] eventsjlkfjsadfdasdf
+    22.[✗] deadlinedajldkfjasl;kdffdsa
+    ____________________________________________________________
+    ____________________________________________________________
+    ☹ OOPS!!! I'm sorry, but I don't know what that means :-(
+    ____________________________________________________________
+    ____________________________________________________________
     Got it. I've added this task:
       [✗] bye!
-    Now you have 20 tasks in the list.
+    Now you have 23 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
     Bye. Hope to see you again soon!
