@@ -1,5 +1,7 @@
 package duke;
 
+import duke.exception.InvalidCommandException;
+import duke.exception.InvalidDescriptionException;
 import duke.task.Task;
 
 import java.util.Scanner;
