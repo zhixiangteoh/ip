@@ -1,22 +1,24 @@
-public class Event extends Task {
+package duke.task;
+
+public class Deadline extends Task {
     private String typeBox;
 
-    public Event(String taskDesc, int totalTasksNumber) {
+    public Deadline(String taskDesc, int totalTasksNumber) {
         super(taskDesc, totalTasksNumber);
-        typeBox = "[E]";
+        typeBox = "[D]";
     }
 
     @Override
     public String getTaskDesc() {
-        String[] splitDesc = super.getTaskDesc().split("/at", 2);
+        String[] splitDesc = super.getTaskDesc().split("/by", 2);
         String desc = splitDesc[0];
         String time = splitDesc[1];
-        return desc + "(at:" + time + ")";
+        return desc + "(by:" + time + ")";
     }
 
     @Override
     public String toString() {
-        // [E][x] eat (at: 10am)
+        // [D][x] eat (by: 10am)
         return typeBox + getCheckBox() + " " + getTaskDesc();
     }
 }
