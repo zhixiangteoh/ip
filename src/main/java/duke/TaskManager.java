@@ -7,20 +7,24 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
 
+import java.util.ArrayList;
+
 public class TaskManager {
-    private Task[] tasks;
+    private ArrayList<Task> tasks;
     private final static int MAX_TASKS = 100;
     private final static int STARTING_TASK_NUMBER = 1;
     private final static String COMMAND_TODO = "todo";
     private final static String COMMAND_DEADLINE = "deadline";
     private final static String COMMAND_EVENT = "event";
+    private final static String COMMAND_DONE = "done";
+    private final static String COMMAND_DELETE = "delete";
     private final static String COMMAND_INVALID = "blah";
 
     private static int totalTasksNumber;
     private static int currentTaskNumber;
 
     public TaskManager() {
-        tasks = new Task[MAX_TASKS];
+        tasks = new ArrayList<Task>();
         totalTasksNumber = 0;
         currentTaskNumber = STARTING_TASK_NUMBER;
     }
@@ -53,7 +57,7 @@ public class TaskManager {
         } else {
             taskAdded = new Task(taskDesc, currentTaskNumber);
         }
-        tasks[totalTasksNumber] = taskAdded;
+        tasks.add(taskAdded);
 
         totalTasksNumber++;
         currentTaskNumber++;
@@ -105,14 +109,31 @@ public class TaskManager {
         return totalTasksNumber;
     }
 
+    // returns Task object that is checked as done.
+    // returns null if no Task object checked.
     public Task taskChecked(String userInputLine) {
-        String digitString = userInputLine.substring("done ".length());
-        int taskDoneNumber = Integer.parseInt(digitString);
-        if (taskDoneNumber > 0) {
-            tasks[taskDoneNumber - 1].setDone(true);
-            return tasks[taskDoneNumber - 1];
+        String digitString = getDigitString(userInputLine, COMMAND_DONE);
+        int taskDoneNumber = Integer.parseInt(digitString) - STARTING_TASK_NUMBER;
+        if (taskDoneNumber >= 0) {
+            tasks.get(taskDoneNumber).setDone(true);
+            return tasks.get(taskDoneNumber);
         }
         return null;
+    }
+
+    public Task taskDeleted(String userInputLine) {
+        String digitString = getDigitString(userInputLine, COMMAND_DELETE);
+        int taskDeletedNumber = Integer.parseInt(digitString) - STARTING_TASK_NUMBER;
+        if (taskDeletedNumber >= 0) {
+            Task deletedTask = tasks.get(taskDeletedNumber);
+            tasks.remove(taskDeletedNumber);
+            return deletedTask;
+        }
+        return null;
+    }
+
+    private String getDigitString(String userInputLine, String command) {
+        return userInputLine.substring((command + " ").length());
     }
 
     public String tasksToString() {
