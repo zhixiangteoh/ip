@@ -10,8 +10,7 @@ import duke.task.ToDo;
 import java.util.ArrayList;
 
 public class TaskManager {
-    private ArrayList<Task> tasks;
-    private final static int MAX_TASKS = 100;
+    private static ArrayList<Task> tasks;
     private final static int STARTING_TASK_NUMBER = 1;
     private final static String COMMAND_TODO = "todo";
     private final static String COMMAND_DEADLINE = "deadline";
@@ -20,13 +19,8 @@ public class TaskManager {
     private final static String COMMAND_DELETE = "delete";
     private final static String COMMAND_INVALID = "blah";
 
-    private static int totalTasksNumber;
-    private static int currentTaskNumber;
-
     public TaskManager() {
-        tasks = new ArrayList<Task>();
-        totalTasksNumber = 0;
-        currentTaskNumber = STARTING_TASK_NUMBER;
+        tasks = new ArrayList<>();
     }
 
     public Task addTask(String userInputLine) throws InvalidDescriptionException, InvalidCommandException {
@@ -49,18 +43,15 @@ public class TaskManager {
 
         Task taskAdded;
         if (taskType.equals(COMMAND_DEADLINE)) {
-            taskAdded = new Deadline(taskDesc, currentTaskNumber);
+            taskAdded = new Deadline(taskDesc);
         } else if (taskType.equals(COMMAND_EVENT)) {
-            taskAdded = new Event(taskDesc, currentTaskNumber);
+            taskAdded = new Event(taskDesc);
         } else if (taskType.equals(COMMAND_TODO)) {
-            taskAdded = new ToDo(taskDesc, currentTaskNumber);
+            taskAdded = new ToDo(taskDesc);
         } else {
-            taskAdded = new Task(taskDesc, currentTaskNumber);
+            taskAdded = new Task(taskDesc);
         }
         tasks.add(taskAdded);
-
-        totalTasksNumber++;
-        currentTaskNumber++;
 
         return taskAdded;
     }
@@ -106,7 +97,7 @@ public class TaskManager {
     }
 
     public static int getTotalTasksNumber() {
-        return totalTasksNumber;
+        return tasks.size();
     }
 
     // returns Task object that is checked as done.
@@ -138,10 +129,11 @@ public class TaskManager {
 
     public String tasksToString() {
         StringBuilder taskList = new StringBuilder();
+        int currentTaskNumber = STARTING_TASK_NUMBER;
         for (Task task : tasks) {
             if (task != null) {
                 taskList.append("    ");
-                taskList.append(task.getTaskNumber() + ".");
+                taskList.append(currentTaskNumber++ + ".");
                 taskList.append(task.toString());
                 taskList.append(System.lineSeparator());
             }
