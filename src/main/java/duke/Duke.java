@@ -1,13 +1,12 @@
 package duke;
 
+import duke.exception.ParseException;
 import duke.exception.InvalidCommandException;
 import duke.exception.InvalidDescriptionException;
 import duke.task.Task;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Duke {
@@ -21,7 +20,6 @@ public class Duke {
     private static TaskManager taskManager;
     private static File file;
     private static File folder;
-    private static FileWriter writer;
 
     public static void main(String[] args) {
         showLogo();
@@ -46,8 +44,10 @@ public class Duke {
         if (file.exists()) {
             try {
                 taskManager.readFile(file);
-            } catch (FileNotFoundException ioe) {
-                System.out.println("File not found!");
+            } catch (FileNotFoundException fnfe) {
+                System.out.println(fnfe.getMessage());
+            } catch (ParseException e) {
+                System.out.println("Unable to read or parse file.");
             }
         }
 

@@ -1,18 +1,27 @@
 package duke;
 
+import duke.exception.ParseException;
 import duke.exception.InvalidCommandException;
 import duke.exception.InvalidDescriptionException;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
+
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static duke.Duke.BREAK;
+import static duke.Duke.FILE_PATH;
 
 public class TaskManager {
     private static ArrayList<Task> tasks;
+    private static Parser parser = new Parser();
     private final static int STARTING_TASK_NUMBER = 1;
     private final static String COMMAND_TODO = "todo";
     private final static String COMMAND_DEADLINE = "deadline";
@@ -25,8 +34,36 @@ public class TaskManager {
         tasks = new ArrayList<>();
     }
 
-    public void readFile(File file) throws FileNotFoundException {
-        
+    public void readFile(File file) throws ParseException, FileNotFoundException {
+        Scanner fileSc = new Scanner(file);
+        while (fileSc.hasNextLine()) {
+            String taskLine = fileSc.nextLine();
+            Task task = parser.createTask(taskLine);
+            addTask(task);
+        }
+    }
+
+    public static void updateTasksFile() {
+        try {
+            File writeFile = new File(FILE_PATH);
+            if (!writeFile.exists()) {
+                writeFile.createNewFile();
+            }
+
+            FileWriter writer = new FileWriter(writeFile);
+            for (Task task : tasks) {
+                String writeLine = parser.convertToFileInput(task);
+                writer.write(writeLine + BREAK);
+            }
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+    }
+
+    public void addTask(Task task) {
+        tasks.add(task);
+        updateTasksFile();
     }
 
     public Task addTask(String userInputLine) throws InvalidDescriptionException, InvalidCommandException {
@@ -58,6 +95,7 @@ public class TaskManager {
             taskAdded = new Task(taskDesc);
         }
         tasks.add(taskAdded);
+        updateTasksFile();
 
         return taskAdded;
     }
@@ -113,6 +151,7 @@ public class TaskManager {
         int taskDoneNumber = Integer.parseInt(digitString) - STARTING_TASK_NUMBER;
         if (taskDoneNumber >= 0) {
             tasks.get(taskDoneNumber).setDone(true);
+            updateTasksFile();
             return tasks.get(taskDoneNumber);
         }
         return null;
@@ -124,6 +163,7 @@ public class TaskManager {
         if (taskDeletedNumber >= 0) {
             Task deletedTask = tasks.get(taskDeletedNumber);
             tasks.remove(taskDeletedNumber);
+            updateTasksFile();
             return deletedTask;
         }
         return null;
