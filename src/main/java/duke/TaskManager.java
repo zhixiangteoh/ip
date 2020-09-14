@@ -46,6 +46,7 @@ public class TaskManager {
         try {
             File writeFile = new File(FILE_PATH);
             if (!writeFile.exists()) {
+                System.out.println("Creating new file 'duke.txt':");
                 writeFile.createNewFile();
             }
 
