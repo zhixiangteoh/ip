@@ -4,6 +4,11 @@ import duke.exception.InvalidCommandException;
 import duke.exception.InvalidDescriptionException;
 import duke.task.Task;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Duke {
@@ -11,8 +16,13 @@ public class Duke {
     public static final String BREAK = System.lineSeparator();
     public static final String TAB = "    ";
     public static final String BORDER = "    ____________________________________________________________";
+    public static final String FILE_PATH = "./data/duke.txt";
+    public static final String FOLDER_PATH = "./data";
 
     private static TaskManager taskManager;
+    private static File file;
+    private static File folder;
+    private static FileWriter writer;
 
     public static void main(String[] args) {
         showLogo();
@@ -24,8 +34,24 @@ public class Duke {
     private static void interact() {
         // create input scanner
         Scanner in = new Scanner(System.in);
-
         taskManager = new TaskManager();
+
+        file = new File(FILE_PATH);
+        folder = new File(FOLDER_PATH);
+
+        if (!folder.exists()) {
+            System.out.println("Creating new folder 'data' in root directory:");
+            folder.mkdir();
+        }
+
+        if (file.exists()) {
+            try {
+                taskManager.readFile(file);
+            } catch (FileNotFoundException ioe) {
+                System.out.println("File not found!");
+            }
+        }
+
         while (in.hasNextLine()) {
             String userInputLine = in.nextLine();
 

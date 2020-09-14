@@ -7,6 +7,9 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class TaskManager {
     private Task[] tasks;
     private final static int MAX_TASKS = 100;
@@ -23,6 +26,10 @@ public class TaskManager {
         tasks = new Task[MAX_TASKS];
         totalTasksNumber = 0;
         currentTaskNumber = STARTING_TASK_NUMBER;
+    }
+
+    public void readFile(File file) throws FileNotFoundException {
+        
     }
 
     public Task addTask(String userInputLine) throws InvalidDescriptionException, InvalidCommandException {
