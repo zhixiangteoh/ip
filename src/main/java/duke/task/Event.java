@@ -3,8 +3,8 @@ package duke.task;
 public class Event extends Task {
     private String typeBox;
 
-    public Event(String taskDesc, int totalTasksNumber) {
-        super(taskDesc, totalTasksNumber);
+    public Event(String taskDesc) {
+        super(taskDesc);
         typeBox = "[E]";
     }
 
