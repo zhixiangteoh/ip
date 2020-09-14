@@ -1,9 +1,12 @@
 package duke;
 
+import duke.exception.ParseException;
 import duke.exception.InvalidCommandException;
 import duke.exception.InvalidDescriptionException;
 import duke.task.Task;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Duke {
@@ -11,8 +14,12 @@ public class Duke {
     public static final String BREAK = System.lineSeparator();
     public static final String TAB = "    ";
     public static final String BORDER = "    ____________________________________________________________";
+    public static final String FILE_PATH = "./data/duke.txt";
+    public static final String FOLDER_PATH = "./data";
 
     private static TaskManager taskManager;
+    private static File file;
+    private static File folder;
 
     public static void main(String[] args) {
         showLogo();
@@ -24,8 +31,26 @@ public class Duke {
     private static void interact() {
         // create input scanner
         Scanner in = new Scanner(System.in);
-
         taskManager = new TaskManager();
+
+        file = new File(FILE_PATH);
+        folder = new File(FOLDER_PATH);
+
+        if (!folder.exists()) {
+            System.out.println("Creating new folder 'data' in root directory:");
+            folder.mkdir();
+        }
+
+        if (file.exists()) {
+            try {
+                taskManager.readFile(file);
+            } catch (FileNotFoundException fnfe) {
+                System.out.println(fnfe.getMessage());
+            } catch (ParseException e) {
+                System.out.println("Unable to read or parse file.");
+            }
+        }
+
         while (in.hasNextLine()) {
             String userInputLine = in.nextLine();
 
@@ -33,8 +58,8 @@ public class Duke {
                 break;
             } else if (commandIsList(userInputLine)) {
                 listTasks("Here are the tasks in your list:");
-            } else if (commandIsDone(userInputLine)) {
                 // returns task that is checked if a task is successfully checked, else returns null
+            } else if (commandIsDone(userInputLine)) {
                 Task doneTask = taskManager.taskChecked(userInputLine);
                 if (taskIsChecked(doneTask)) {
                     listDoneTask("Nice! I've marked this task as done:", doneTask);
@@ -46,6 +71,7 @@ public class Duke {
                 }
             } else {
                 try {
+                    // returns task that is added if a task is successfully added, else returns null
                     Task addedTask = taskManager.addTask(userInputLine);
                     listTask("Got it. I've added this task:", addedTask);
                 } catch (InvalidDescriptionException ide) {
