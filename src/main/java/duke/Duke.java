@@ -46,8 +46,8 @@ public class Duke {
                 taskManager.readFile(file);
             } catch (FileNotFoundException fnfe) {
                 System.out.println(fnfe.getMessage());
-            } catch (ParseException e) {
-                System.out.println("Unable to read or parse file.");
+            } catch (ParseException pe) {
+                System.out.println(pe.getMessage());
             }
         }
 

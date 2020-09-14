@@ -1,0 +1,4 @@
+E | 0 | eat | 12pm
+D | 0 | sleep | now
+E | 0 | sleep | now
+T | 0 | eat

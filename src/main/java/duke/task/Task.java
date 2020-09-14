@@ -5,30 +5,16 @@ public class Task {
     private static final String CROSS = "[✗]";
 
     private String taskDesc;
-    private int taskNumber;
     private boolean isDone;
     private String checkBox;
 
     public Task(String taskDesc) {
         this.taskDesc = taskDesc;
-        // this.taskNumber = taskNumber;
         this.isDone = false;
     }
 
     public String getTaskDesc() {
         return taskDesc;
-    }
-
-    public void setTaskDesc(String taskDesc) {
-        this.taskDesc = taskDesc;
-    }
-
-    public int getTaskNumber() {
-        return taskNumber;
-    }
-
-    public void setTaskNumber(int taskNumber) {
-        this.taskNumber = taskNumber;
     }
 
     public boolean isDone() {

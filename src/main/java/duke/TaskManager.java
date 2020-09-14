@@ -40,7 +40,6 @@ public class TaskManager {
             Task task = parser.createTask(taskLine);
             addTask(task);
         }
-        fileSc.close();
     }
 
     public static void updateTasksFile() {
