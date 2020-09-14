@@ -1,4 +1,0 @@
-| 1 | eat
-T | 1 | eat
-D | 1 | shower | 10pm
-E | 0 | shower | 10pm

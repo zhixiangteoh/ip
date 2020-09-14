@@ -28,7 +28,6 @@ public class TaskManager {
     private final static String COMMAND_EVENT = "event";
     private final static String COMMAND_DONE = "done";
     private final static String COMMAND_DELETE = "delete";
-    private final static String COMMAND_INVALID = "blah";
 
     public TaskManager() {
         tasks = new ArrayList<>();
@@ -41,6 +40,7 @@ public class TaskManager {
             Task task = parser.createTask(taskLine);
             addTask(task);
         }
+        fileSc.close();
     }
 
     public static void updateTasksFile() {
@@ -52,8 +52,12 @@ public class TaskManager {
 
             FileWriter writer = new FileWriter(writeFile);
             for (Task task : tasks) {
-                String writeLine = parser.convertToFileInput(task);
-                writer.write(writeLine + BREAK);
+                try {
+                    String writeLine = parser.convertToFileInput(task);
+                    writer.write(writeLine + BREAK);
+                } catch (ParseException pe) {
+                    System.out.println(pe.getMessage());
+                }
             }
             writer.close();
         } catch (IOException ioe) {
@@ -73,16 +77,13 @@ public class TaskManager {
         try {
             taskType = getTypeFromInput(userInputLine);
             taskDesc = getDescFromInput(userInputLine);
-        } catch (ArrayIndexOutOfBoundsException aie) {
-            taskType = userInputLine.trim();
-            throw new InvalidDescriptionException(taskType);
         } catch (InvalidCommandException ice) {
             throw new InvalidCommandException();
         }
 
-        if (taskDesc.trim().isEmpty()) {
-            throw new InvalidDescriptionException(taskType);
-        }
+        // if (taskDesc.trim().isEmpty()) {
+        //     throw new InvalidDescriptionException(taskType);
+        // }
 
         Task taskAdded;
         if (taskType.equals(COMMAND_DEADLINE)) {
@@ -92,7 +93,7 @@ public class TaskManager {
         } else if (taskType.equals(COMMAND_TODO)) {
             taskAdded = new ToDo(taskDesc);
         } else {
-            taskAdded = new Task(taskDesc);
+            throw new InvalidCommandException();
         }
         tasks.add(taskAdded);
         updateTasksFile();
@@ -100,24 +101,29 @@ public class TaskManager {
         return taskAdded;
     }
 
-    private String getTypeFromInput(String userInputLine) {
-        String taskType = "";
+    private String getTypeFromInput(String userInputLine) throws InvalidCommandException {
+        String taskType= "";
         if (taskHasType(userInputLine)) {
             taskType = splitInput(userInputLine)[0];
+        } else {
+            throw new InvalidCommandException();
         }
         return taskType;
     }
 
     private String getDescFromInput(String userInputLine) throws InvalidDescriptionException, InvalidCommandException {
-        String taskDesc = userInputLine;
+        String taskType = "";
+        String taskDesc = "";
         if (taskHasType(userInputLine)) {
-            taskDesc = splitInput(userInputLine)[1];
+            String[] taskDetails = splitInput(userInputLine);
+            taskType = taskDetails[0];
+            taskDesc = taskDetails[1];
+        } else {
+            throw new InvalidCommandException();
         }
 
-        if (isTaskType(taskDesc)) {
-            throw new InvalidDescriptionException(taskDesc);
-        } else if (taskDesc.equals(COMMAND_INVALID)) {
-            throw new InvalidCommandException();
+        if (taskDesc.isEmpty()) {
+            throw new InvalidDescriptionException(taskType);
         }
 
         return taskDesc;
@@ -132,12 +138,6 @@ public class TaskManager {
         boolean containsEvent    = input.contains(COMMAND_EVENT + " ");
         boolean containsToDo     = input.contains(COMMAND_TODO + " ");
         return containsDeadline || containsEvent || containsToDo;
-    }
-
-    private boolean isTaskType(String taskDesc) {
-        return taskDesc.equals(COMMAND_DEADLINE)
-                || taskDesc.equals(COMMAND_EVENT)
-                || taskDesc.equals(COMMAND_TODO);
     }
 
     public static int getTotalTasksNumber() {

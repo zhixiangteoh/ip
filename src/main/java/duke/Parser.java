@@ -13,12 +13,13 @@ public class Parser {
 
     public static Task createTask(String taskLine) throws ParseException {
         // e.g., taskLine: T | 1 | read book
-        String[] components = taskLine.split("\\s*|\\s*", 3);
+        String[] components = taskLine.split("|", 3);
         Task task;
+
+        String typeSymbol = components[0];
         boolean isDone = Boolean.parseBoolean(components[1]);
         String description = components[2];
 
-        String typeSymbol = components[0];
         switch (typeSymbol) {
         case SYMBOL_TODO:
             task = new ToDo(description);
@@ -31,11 +32,8 @@ public class Parser {
             description.replace("|", "/at");
             task = new Event(description);
             break;
-        case "":
-            task = new Task(description);
-            break;
         default:
-            throw new ParseException();
+            throw new ParseException("Unable to create Task object from file task input string.");
         }
 
         task.setDone(isDone);
@@ -43,7 +41,7 @@ public class Parser {
         return task;
     }
 
-    public String convertToFileInput(Task task) {
+    public String convertToFileInput(Task task) throws ParseException {
         String fileTaskLine = "";
         int isDoneBit = task.isDone() ? 1 : 0;
         if (task instanceof ToDo) {
@@ -62,7 +60,7 @@ public class Parser {
             String time = splitDesc[1].trim();
             fileTaskLine += SYMBOL_EVENT + " | " + isDoneBit + " | " + description + " | " + time;
         } else {
-            fileTaskLine += "| " + isDoneBit + " | " + task.getTaskDesc();
+            throw new ParseException("Unable to convert Task object to file task input string.");
         }
 
         return fileTaskLine;
