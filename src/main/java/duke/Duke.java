@@ -34,14 +34,16 @@ public class Duke {
             } else if (inputIsList(userInputLine)) {
                 listTasks("Here are the tasks in your list:");
             } else if (inputIsDone(userInputLine)) {
+                // returns task that is checked if a task is successfully checked, else returns null
                 Task doneTask = taskManager.taskChecked(userInputLine);
                 if (taskIsChecked(doneTask)) {
                     listDoneTask("Nice! I've marked this task as done:", doneTask);
                 }
             } else {
                 try {
-                    Task taskAdded = taskManager.addTask(userInputLine);
-                    showAddTask(taskAdded);
+                    // returns task that is added if a task is successfully added, else returns null
+                    Task addedTask = taskManager.addTask(userInputLine);
+                    showAddTask(addedTask);
                 } catch (InvalidDescriptionException ide) {
                     showInvalidDescMessage(ide);
                 } catch (InvalidCommandException ice) {
