@@ -3,8 +3,8 @@ package duke.task;
 public class ToDo extends Task {
     private String typeBox;
 
-    public ToDo(String taskDesc, int totalTasksNumber) {
-        super(taskDesc, totalTasksNumber);
+    public ToDo(String taskDesc) {
+        super(taskDesc);
         typeBox = "[T]";
     }
 

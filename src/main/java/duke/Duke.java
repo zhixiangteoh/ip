@@ -4,7 +4,6 @@ import duke.exception.InvalidCommandException;
 import duke.exception.InvalidDescriptionException;
 import duke.task.Task;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -55,21 +54,26 @@ public class Duke {
         while (in.hasNextLine()) {
             String userInputLine = in.nextLine();
 
-            if (inputIsBye(userInputLine)) {
+            if (commandIsBye(userInputLine)) {
                 break;
-            } else if (inputIsList(userInputLine)) {
+            } else if (commandIsList(userInputLine)) {
                 listTasks("Here are the tasks in your list:");
-            } else if (inputIsDone(userInputLine)) {
                 // returns task that is checked if a task is successfully checked, else returns null
+            } else if (commandIsDone(userInputLine)) {
                 Task doneTask = taskManager.taskChecked(userInputLine);
                 if (taskIsChecked(doneTask)) {
                     listDoneTask("Nice! I've marked this task as done:", doneTask);
+                }
+            } else if (commandIsDelete(userInputLine)) {
+                Task deletedTask = taskManager.taskDeleted(userInputLine);
+                if (taskIsDeleted(deletedTask)) {
+                    listTask("Noted. I've removed this task:", deletedTask);
                 }
             } else {
                 try {
                     // returns task that is added if a task is successfully added, else returns null
                     Task addedTask = taskManager.addTask(userInputLine);
-                    showAddTask(addedTask);
+                    listTask("Got it. I've added this task:", addedTask);
                 } catch (InvalidDescriptionException ide) {
                     showInvalidDescMessage(ide);
                 } catch (InvalidCommandException ice) {
@@ -92,8 +96,8 @@ public class Duke {
         printBetwBorders(message);
     }
 
-    private static void showAddTask(Task task) {
-        String prologue = TAB + "Got it. I've added this task:" + BREAK;
+    private static void listTask(String message, Task task) {
+        String prologue = TAB + message + BREAK;
         String content = TAB + HALF_TAB + task.toString() + BREAK;
         String epilogue = TAB + "Now you have " + taskManager.getTotalTasksNumber() + " tasks in the list." + BREAK;
         printBetwBorders(prologue + content + epilogue);
@@ -101,6 +105,10 @@ public class Duke {
 
     private static boolean taskIsChecked(Task doneTask) {
         return doneTask != null;
+    }
+
+    private static boolean taskIsDeleted(Task deletedTask) {
+        return deletedTask != null;
     }
 
     private static void listTasks(String s) {
@@ -114,16 +122,20 @@ public class Duke {
                         + TAB + HALF_TAB + doneTask + BREAK);
     }
 
-    private static boolean inputIsDone(String userInputLine) {
+    private static boolean commandIsDone(String userInputLine) {
         return userInputLine.matches("done ([0-9]+)");
     }
 
-    private static boolean inputIsList(String userInputLine) {
+    private static boolean commandIsList(String userInputLine) {
         return userInputLine.equalsIgnoreCase("list");
     }
 
-    private static boolean inputIsBye(String userInputLine) {
+    private static boolean commandIsBye(String userInputLine) {
         return userInputLine.equalsIgnoreCase("bye");
+    }
+
+    private static boolean commandIsDelete(String userInputLine) {
+        return userInputLine.matches("delete ([0-9]+)");
     }
 
     private static void showLogo() {

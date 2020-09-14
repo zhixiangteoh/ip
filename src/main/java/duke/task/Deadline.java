@@ -3,8 +3,8 @@ package duke.task;
 public class Deadline extends Task {
     private String typeBox;
 
-    public Deadline(String taskDesc, int totalTasksNumber) {
-        super(taskDesc, totalTasksNumber);
+    public Deadline(String taskDesc) {
+        super(taskDesc);
         typeBox = "[D]";
     }
 

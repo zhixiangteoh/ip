@@ -9,13 +9,9 @@ public class Task {
     private boolean isDone;
     private String checkBox;
 
-    public Task() {
-        this("", 0);
-    }
-
-    public Task(String taskDesc, int taskNumber) {
+    public Task(String taskDesc) {
         this.taskDesc = taskDesc;
-        this.taskNumber = taskNumber;
+        // this.taskNumber = taskNumber;
         this.isDone = false;
     }
 
