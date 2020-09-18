@@ -124,8 +124,13 @@ public class Parser {
         return fileTaskLine;
     }
 
+    /**
+     * Returns LocalDateTime object of the date-time.
+     *
+     * @param dateTimeString
+     * @return date and time in LocalDateTime object
+     */
     public LocalDateTime getDateTime(String dateTimeString) {
-        // String dateStringUnformatted = dateTimeString.split(" ", 2)[0];
         LocalDateTime datetime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd " +
                 "HHmm"));
         return datetime;

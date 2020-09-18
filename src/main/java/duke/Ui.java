@@ -5,7 +5,6 @@ import duke.exception.EmptyDescriptionException;
 import duke.exception.TaskIndexNotSpecifiedException;
 import duke.task.Task;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**

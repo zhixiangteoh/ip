@@ -46,7 +46,12 @@ public class TaskList {
         parser = new Parser();
         loadTaskList();
     }
-  
+
+    /**
+     * Constructor. Creates a TaskList from an existing List of Tasks.
+     *
+     * @param tasks
+     */
     public TaskList(List<Task> tasks) {
         this.tasks = (ArrayList<Task>) tasks;
     }
@@ -152,6 +157,12 @@ public class TaskList {
         return taskAdded;
     }
 
+    /**
+     * Finds all tasks that have task descriptions matching the search input for this command.
+     *
+     * @param userInputLine full user input line, containing the search term(s)
+     * @return List of Tasks that match the search
+     */
     public List<Task> find(String userInputLine) {
         String findDesc = getDescFromInput(userInputLine);
 
