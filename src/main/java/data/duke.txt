@@ -1,4 +1,8 @@
 E | 0 | eat | 12pm
-D | 0 | sleep | now
 E | 0 | sleep | now
 T | 0 | eat
+E | 0 | do homework | 10pm
+T | 0 | do homework
+D | 0 | sleep | Sep 19 2020 01:00 AM
+D | 0 | sleep | 2020-09-19 1pm
+E | 0 | sleep | Sep 19 2020 01:00 AM
