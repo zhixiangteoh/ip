@@ -5,6 +5,7 @@ import duke.exception.EmptyDescriptionException;
 import duke.exception.TaskIndexNotSpecifiedException;
 import duke.task.Task;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Ui {
@@ -20,6 +21,7 @@ public class Ui {
     public static final String COMMAND_EVENT = "event";
     public static final String COMMAND_DONE = "done";
     public static final String COMMAND_DELETE = "delete";
+    public static final String COMMAND_FIND = "find";
 
     private TaskList tasks;
     private static Parser parser;
@@ -45,7 +47,7 @@ public class Ui {
         System.out.println(BORDER);
     }
 
-    public void interact(TaskList tasks) {
+    public void interact() {
         // create input scanner
         Scanner in = new Scanner(System.in);
 
@@ -67,7 +69,7 @@ public class Ui {
             case COMMAND_BYE:
                 return;
             case COMMAND_LIST:
-                listTasks("Here are the tasks in your list:");
+                listTasks("Here are the tasks in your list:", tasks);
                 break;
             case COMMAND_DONE:
                 // returns task that is checked if a task is successfully checked, else returns null
@@ -85,6 +87,10 @@ public class Ui {
                 } catch (TaskIndexNotSpecifiedException tinse) {
                     showTaskIndexNotSpecifiedMessage();
                 }
+                break;
+            case COMMAND_FIND:
+                TaskList tasksFound = new TaskList(tasks.find(userInputLine));
+                listTasks("Here are the matching tasks in your list:", tasksFound);
                 break;
             default:
                 try {
@@ -136,7 +142,7 @@ public class Ui {
         return deletedTask != null;
     }
 
-    private void listTasks(String s) {
+    private void listTasks(String s, TaskList tasks) {
         String desc = TAB + s;
         printBetwBorders(desc + BREAK + tasks.tasksToString());
     }
