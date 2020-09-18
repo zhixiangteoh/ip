@@ -14,7 +14,9 @@ import java.util.ArrayList;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static duke.Storage.FILE_PATH;
 import static duke.Ui.BREAK;
@@ -43,6 +45,10 @@ public class TaskList {
         storage = new Storage();
         parser = new Parser();
         loadTaskList();
+    }
+  
+    public TaskList(List<Task> tasks) {
+        this.tasks = (ArrayList<Task>) tasks;
     }
 
     /**
@@ -146,21 +152,22 @@ public class TaskList {
         return taskAdded;
     }
 
+    public List<Task> find(String userInputLine) {
+        String findDesc = getDescFromInput(userInputLine);
+
+        List<Task> tasksFound = tasks.stream()
+                .filter(task -> task.getTaskDesc().contains(findDesc))
+                .collect(Collectors.toList());
+
+        return tasksFound;
+    }
+
     private String getDescFromInput(String userInputLine) {
         String taskDesc = "";
         String[] taskDetails = userInputLine.split(" ", 2);
         taskDesc = taskDetails[1];
 
         return taskDesc;
-    }
-
-    /**
-     * Returns total number of tasks in the TaskList.
-     *
-     * @return total number of tasks
-     */
-    public int getTotalTasksNumber() {
-        return tasks.size();
     }
 
     /**
@@ -239,5 +246,14 @@ public class TaskList {
             }
         }
         return taskList.toString();
+    }
+
+    /**
+     * Returns total number of tasks in the TaskList.
+     *
+     * @return total number of tasks
+     */
+    public int getTotalTasksNumber() {
+        return tasks.size();
     }
 }

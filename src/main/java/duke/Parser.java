@@ -8,12 +8,15 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import static duke.Ui.COMMAND_BYE;
 import static duke.Ui.COMMAND_LIST;
 import static duke.Ui.COMMAND_DONE;
 import static duke.Ui.COMMAND_DELETE;
+import static duke.Ui.COMMAND_FIND;
 import static duke.Ui.COMMAND_TODO;
 import static duke.Ui.COMMAND_DEADLINE;
 import static duke.Ui.COMMAND_EVENT;
@@ -26,7 +29,8 @@ public class Parser {
     public static final String SYMBOL_TODO = "T";
     public static final String SYMBOL_EVENT = "E";
     public static final String SYMBOL_DEADLINE = "D";
-    public static final Set<String> TASK_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE);
+    public static final Set<String> DESC_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE, COMMAND_FIND);
+    public static final Set<String> OTHER_COMMANDS = Set.of(COMMAND_BYE, COMMAND_LIST, COMMAND_DONE, COMMAND_DELETE);
 
     /**
      * Returns user's command for the given input line, and handles some erroneous input.
@@ -38,15 +42,12 @@ public class Parser {
      */
     public String getCommand(String userInputLine) throws InvalidCommandException, EmptyDescriptionException {
         // these input lines consists only of the commands, so just return them and catch bespoke errors
-        if (userInputLine.equals(COMMAND_BYE) || userInputLine.equals(COMMAND_LIST)) {
-            return userInputLine;
-        }
-        if (userInputLine.equals(COMMAND_DONE) || userInputLine.equals(COMMAND_DELETE)) {
+        if (OTHER_COMMANDS.contains(userInputLine)) {
             return userInputLine;
         }
         // these input lines contain the commands which cannot have empty descriptions
-        if (TASK_COMMANDS.contains(userInputLine)) {
-            throw new EmptyDescriptionException(userInputLine);
+        if (DESC_COMMANDS.contains(userInputLine.trim())) {
+            throw new EmptyDescriptionException(userInputLine.trim());
         }
 
         try {
@@ -121,5 +122,12 @@ public class Parser {
         }
 
         return fileTaskLine;
+    }
+
+    public LocalDateTime getDateTime(String dateTimeString) {
+        // String dateStringUnformatted = dateTimeString.split(" ", 2)[0];
+        LocalDateTime datetime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd " +
+                "HHmm"));
+        return datetime;
     }
 }
