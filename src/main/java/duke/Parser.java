@@ -8,6 +8,8 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import static duke.Ui.COMMAND_BYE;
@@ -92,5 +94,12 @@ public class Parser {
         }
 
         return fileTaskLine;
+    }
+
+    public LocalDateTime getDateTime(String dateTimeString) {
+        // String dateStringUnformatted = dateTimeString.split(" ", 2)[0];
+        LocalDateTime datetime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd " +
+                "HHmm"));
+        return datetime;
     }
 }
