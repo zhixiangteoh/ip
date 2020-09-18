@@ -18,19 +18,33 @@ import static duke.Ui.COMMAND_TODO;
 import static duke.Ui.COMMAND_DEADLINE;
 import static duke.Ui.COMMAND_EVENT;
 
+/**
+ * Parser handling most parsing operations, particularly pertaining to parsing the command from user input, reading
+ * and writing saved file data, and date-time parsing.
+ */
 public class Parser {
     public static final String SYMBOL_TODO = "T";
     public static final String SYMBOL_EVENT = "E";
     public static final String SYMBOL_DEADLINE = "D";
     public static final Set<String> TASK_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE);
 
+    /**
+     * Returns user's command for the given input line, and handles some erroneous input.
+     *
+     * @param userInputLine full user input line
+     * @return user command as a String
+     * @throws InvalidCommandException
+     * @throws EmptyDescriptionException
+     */
     public String getCommand(String userInputLine) throws InvalidCommandException, EmptyDescriptionException {
+        // these input lines consists only of the commands, so just return them and catch bespoke errors
         if (userInputLine.equals(COMMAND_BYE) || userInputLine.equals(COMMAND_LIST)) {
             return userInputLine;
         }
         if (userInputLine.equals(COMMAND_DONE) || userInputLine.equals(COMMAND_DELETE)) {
             return userInputLine;
         }
+        // these input lines contain the commands which cannot have empty descriptions
         if (TASK_COMMANDS.contains(userInputLine)) {
             throw new EmptyDescriptionException(userInputLine);
         }
@@ -40,10 +54,18 @@ public class Parser {
             String command = userInputLine.substring(0, commandEndIndex);
             return command;
         } catch (Exception e) {
+            // catches all inputs that don't have at least two words and are not in OTHER_COMMANDS
             throw new InvalidCommandException();
         }
     }
 
+    /**
+     * Returns the created Task object from the corresponding saved file raw input.
+     *
+     * @param taskLine saved file Task line
+     * @return created Task
+     * @throws ParseException
+     */
     public Task createTask(String taskLine) throws ParseException {
         // e.g., taskLine: T | 1 | read book
         String[] components = taskLine.split("\\|", 3);
@@ -75,6 +97,13 @@ public class Parser {
         return task;
     }
 
+    /**
+     * Returns save file input format for the given Task. Essentially the inverse of createTask.
+     *
+     * @param task Task to be converted to save file format
+     * @return save file String format
+     * @throws ParseException
+     */
     public String convertToFileInput(Task task) throws ParseException {
         String fileTaskLine = "";
 

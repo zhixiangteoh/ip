@@ -1,5 +1,8 @@
 package duke.task;
 
+/**
+ * Task object. Parent class of all specific Task objects, namely ToDo, Deadline, and Event.
+ */
 public class Task {
     private static final String TICK = "[✓]";
     private static final String CROSS = "[✗]";
@@ -8,6 +11,13 @@ public class Task {
     private boolean isDone;
     private String checkBox;
 
+    /**
+     * Constructor. Builds a Task object from a given task description.
+     *
+     * Task initialized as undone.
+     *
+     * @param taskDesc
+     */
     public Task(String taskDesc) {
         this.taskDesc = taskDesc;
         this.isDone = false;
