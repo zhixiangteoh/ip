@@ -1,9 +1,9 @@
 package duke.exception;
 
-public class InvalidDescriptionException extends DukeException {
+public class EmptyDescriptionException extends DukeException {
     private String taskType;
 
-    public InvalidDescriptionException(String taskType) {
+    public EmptyDescriptionException(String taskType) {
         this.taskType = taskType;
     }
 

@@ -1,17 +1,50 @@
 package duke;
 
+import duke.exception.InvalidCommandException;
+import duke.exception.EmptyDescriptionException;
 import duke.exception.ParseException;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
 
+import java.util.Set;
+
+import static duke.Ui.COMMAND_BYE;
+import static duke.Ui.COMMAND_LIST;
+import static duke.Ui.COMMAND_DONE;
+import static duke.Ui.COMMAND_DELETE;
+import static duke.Ui.COMMAND_TODO;
+import static duke.Ui.COMMAND_DEADLINE;
+import static duke.Ui.COMMAND_EVENT;
+
 public class Parser {
     public static final String SYMBOL_TODO = "T";
     public static final String SYMBOL_EVENT = "E";
     public static final String SYMBOL_DEADLINE = "D";
+    public static final Set<String> TASK_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE);
 
-    public static Task createTask(String taskLine) throws ParseException {
+    public String getCommand(String userInputLine) throws InvalidCommandException, EmptyDescriptionException {
+        if (userInputLine.equals(COMMAND_BYE) || userInputLine.equals(COMMAND_LIST)) {
+            return userInputLine;
+        }
+        if (userInputLine.equals(COMMAND_DONE) || userInputLine.equals(COMMAND_DELETE)) {
+            return userInputLine;
+        }
+        if (TASK_COMMANDS.contains(userInputLine)) {
+            throw new EmptyDescriptionException(userInputLine);
+        }
+
+        try {
+            int commandEndIndex = userInputLine.indexOf(" ");
+            String command = userInputLine.substring(0, commandEndIndex);
+            return command;
+        } catch (Exception e) {
+            throw new InvalidCommandException();
+        }
+    }
+
+    public Task createTask(String taskLine) throws ParseException {
         // e.g., taskLine: T | 1 | read book
         String[] components = taskLine.split("\\|", 3);
         Task task;

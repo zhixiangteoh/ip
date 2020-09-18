@@ -1,4 +1,6 @@
 E | 0 | eat | 12pm
-D | 0 | sleep | now
 E | 0 | sleep | now
 T | 0 | eat
+E | 0 | do homework | 10pm
+T | 0 | do homework
+D | 0 | do homework | 10pm
