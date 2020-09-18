@@ -14,7 +14,9 @@ import java.util.ArrayList;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static duke.Ui.BREAK;
 import static duke.Storage.FILE_PATH;
@@ -34,6 +36,10 @@ public class TaskList {
         tasks = new ArrayList<>();
         storage = new Storage();
         loadTaskList();
+    }
+
+    public TaskList(List<Task> tasks) {
+        this.tasks = (ArrayList<Task>) tasks;
     }
 
     public void loadTaskList() throws FileNotFoundException {
@@ -105,16 +111,22 @@ public class TaskList {
         return taskAdded;
     }
 
+    public List<Task> find(String userInputLine) {
+        String findDesc = getDescFromInput(userInputLine);
+
+        List<Task> tasksFound = tasks.stream()
+                .filter(task -> task.getTaskDesc().contains(findDesc))
+                .collect(Collectors.toList());
+
+        return tasksFound;
+    }
+
     private String getDescFromInput(String userInputLine) {
         String taskDesc = "";
         String[] taskDetails = userInputLine.split(" ", 2);
         taskDesc = taskDetails[1];
 
         return taskDesc;
-    }
-
-    public int getTotalTasksNumber() {
-        return tasks.size();
     }
 
     // returns Task object that is checked as done.
@@ -170,5 +182,9 @@ public class TaskList {
             }
         }
         return taskList.toString();
+    }
+
+    public int getTotalTasksNumber() {
+        return tasks.size();
     }
 }

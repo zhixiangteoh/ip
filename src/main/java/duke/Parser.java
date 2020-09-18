@@ -14,6 +14,7 @@ import static duke.Ui.COMMAND_BYE;
 import static duke.Ui.COMMAND_LIST;
 import static duke.Ui.COMMAND_DONE;
 import static duke.Ui.COMMAND_DELETE;
+import static duke.Ui.COMMAND_FIND;
 import static duke.Ui.COMMAND_TODO;
 import static duke.Ui.COMMAND_DEADLINE;
 import static duke.Ui.COMMAND_EVENT;
@@ -22,17 +23,15 @@ public class Parser {
     public static final String SYMBOL_TODO = "T";
     public static final String SYMBOL_EVENT = "E";
     public static final String SYMBOL_DEADLINE = "D";
-    public static final Set<String> TASK_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE);
+    public static final Set<String> DESC_COMMANDS = Set.of(COMMAND_TODO, COMMAND_EVENT, COMMAND_DEADLINE, COMMAND_FIND);
+    public static final Set<String> OTHER_COMMANDS = Set.of(COMMAND_BYE, COMMAND_LIST, COMMAND_DONE, COMMAND_DELETE);
 
     public String getCommand(String userInputLine) throws InvalidCommandException, EmptyDescriptionException {
-        if (userInputLine.equals(COMMAND_BYE) || userInputLine.equals(COMMAND_LIST)) {
+        if (OTHER_COMMANDS.contains(userInputLine)) {
             return userInputLine;
         }
-        if (userInputLine.equals(COMMAND_DONE) || userInputLine.equals(COMMAND_DELETE)) {
-            return userInputLine;
-        }
-        if (TASK_COMMANDS.contains(userInputLine)) {
-            throw new EmptyDescriptionException(userInputLine);
+        if (DESC_COMMANDS.contains(userInputLine.trim())) {
+            throw new EmptyDescriptionException(userInputLine.trim());
         }
 
         try {

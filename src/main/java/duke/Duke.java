@@ -18,7 +18,7 @@ public class Duke {
     public void run() {
         ui.showLogo();
         ui.greet();
-        ui.interact(tasks);
+        ui.interact();
         ui.sayBye();
     }
 }
