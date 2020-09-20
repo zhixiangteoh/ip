@@ -60,11 +60,10 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
+        <Logo img_src={`${baseUrl}img/favicon.svg`} />
         <div className="inner">
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
             <Button href={docUrl('doc1.html')}>Example Link</Button>
             <Button href={docUrl('doc2.html')}>Example Link 2</Button>
           </PromoSection>
@@ -149,17 +148,35 @@ class Index extends React.Component {
       <Block layout="fourColumn">
         {[
           {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/undraw_react.svg`,
+            content: 'List all saved Tasks.',
+            image: `${baseUrl}img/undraw_online.svg`,
             imageAlign: 'top',
-            title: 'Feature One',
+            title: 'List',
           },
           {
-            content: 'The content of my second feature',
+            content: 'Create ToDos, Events, and Deadlines.',
             image: `${baseUrl}img/undraw_operating_system.svg`,
             imageAlign: 'top',
-            title: 'Feature Two',
+            title: 'Create',
           },
+          {
+            content: 'Mark Tasks as Done.',
+            image: `${baseUrl}img/undraw_note_list.svg`,
+            imageAlign: 'top',
+            title: 'Done',
+          },
+          {
+            content: 'Delete Tasks.',
+            image: `${baseUrl}img/undraw_code_review.svg`,
+            imageAlign: 'top',
+            title: 'Delete',
+          },
+          {
+            content: 'Filter Tasks by key words and/or phrases.',
+            image: `${baseUrl}img/undraw_open_source.svg`,
+            imageAlign: 'top',
+            title: 'Find',
+          }
         ]}
       </Block>
     );
@@ -199,11 +216,11 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
-          <Showcase />
+          {/*<FeatureCallout />*/}
+          {/*<LearnHow />*/}
+          {/*<TryOut />*/}
+          {/*<Description />*/}
+          {/*<Showcase />*/}
         </div>
       </div>
     );

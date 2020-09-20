@@ -21,17 +21,17 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Test Site', // Title for your website.
-  tagline: 'A website for testing',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  title: 'Dude', // Title for your website.
+  tagline: 'Greenfield Java project. Named Dude.',
+  url: 'https://zhixiangteoh.github.io', // Your website URL
+  baseUrl: '/ip/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'test-site',
-  organizationName: 'facebook',
+  projectName: 'ip',
+  organizationName: 'zhixiangteoh',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -54,8 +54,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#995b45',
-    secondaryColor: '#6b3f30',
+    primaryColor: '#bbcfff',
+    secondaryColor: '#ffe0f7',
   },
 
   /* Custom fonts for website */
@@ -73,7 +73,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} Teoh Zhixiang`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -104,7 +104,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  // repoUrl: 'https://github.com/facebook/test-site',
+  repoUrl: 'https://github.com/zhixiangteoh/ip',
 };
 
 module.exports = siteConfig;
