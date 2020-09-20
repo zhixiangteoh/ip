@@ -111,7 +111,7 @@ public class Ui {
                 break;
             case COMMAND_FIND:
                 TaskList tasksFound = new TaskList(tasks.find(userInputLine));
-                listTasks("Here are the matching tasks in your list:", tasksFound);
+                listTasksFound("Here are the matching tasks in your list:", tasksFound);
                 break;
             default:
                 try {
@@ -185,6 +185,11 @@ public class Ui {
     private void listTasks(String s, TaskList tasks) {
         String desc = TAB + s;
         printBetwBorders(desc + BREAK + tasks.tasksToString());
+    }
+
+    private void listTasksFound(String s, TaskList tasks) {
+        String desc = TAB + s;
+        printBetwBorders(desc + BREAK + tasks.tasksFoundToString(this.tasks));
     }
 
     /**

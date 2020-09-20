@@ -6,3 +6,5 @@ T | 0 | do homework
 D | 0 | sleep | Sep 19 2020 01:00 AM
 D | 0 | sleep | 2020-09-19 1pm
 E | 0 | sleep | Sep 19 2020 01:00 AM
+T | 0 | complete homework
+T | 0 | complete 2113 homework

@@ -259,6 +259,23 @@ public class TaskList {
         return taskList.toString();
     }
 
+    public String tasksFoundToString(TaskList mainTasks) {
+        StringBuilder taskList = new StringBuilder();
+        for (Task task : tasks) {
+            if (task != null) {
+                taskList.append("    ");
+                taskList.append(mainTasks.getTasks().indexOf(task) + ".");
+                taskList.append(task.toString());
+                taskList.append(System.lineSeparator());
+            }
+        }
+        return taskList.toString();
+    }
+
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
+
     /**
      * Returns total number of tasks in the TaskList.
      *
