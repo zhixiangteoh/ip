@@ -25,7 +25,6 @@ todo <task description>
 
 ```
 todo HIIT exercise with John
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [T][✗] HIIT exercise with John

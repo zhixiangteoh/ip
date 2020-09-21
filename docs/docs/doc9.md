@@ -40,8 +40,11 @@ find 2113
 #    Here are the matching tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)
 #    2.[D][✓] complete 2113 homework (by: Sep 22 2020 11:59 PM)
+#    5.[D][✗] complete CS2113 ip User Guide (by: Sep 24 2020 11:59 PM)
 #    ____________________________________________________________
 ```
+
+> Note how the filtered indices correspond exactly to the indices of the tasks in the saved task list.
 
 ## Exceptions
 

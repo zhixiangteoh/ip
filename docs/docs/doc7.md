@@ -1,5 +1,5 @@
 ---
-id: doc6
+id: doc7
 title: Create - Event
 ---
 
@@ -33,7 +33,6 @@ Case where date-time input corresponds to `yyyy-MM-dd HHmm` format:
 
 ```
 event meet-up with high school pals /at 2020-09-25 2000
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [E][✗] meet-up with high school pals (at: Sep 25 2020 08:00 PM)
@@ -45,7 +44,6 @@ Cases where date-time input does not correspond exactly to `yyyy-MM-dd HHmm` for
 
 ```
 event meet-up with high school pals /at 2020-09-25
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [E][✗] meet-up with high school pals (at: 2020-09-25)

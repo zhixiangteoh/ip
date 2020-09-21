@@ -33,7 +33,6 @@ Case where date-time input corresponds to `yyyy-MM-dd HHmm` format:
 
 ```
 deadline complete CS2113 ip User Guide /by 2020-09-24 2359
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [D][✗] complete CS2113 ip User Guide (by: Sep 24 2020 11:59 PM)
@@ -45,7 +44,6 @@ Cases where date-time input does not correspond exactly to `yyyy-MM-dd HHmm` for
 
 ```
 deadline complete CS2113 ip User Guide /by 2020-09-24
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [D][✗] complete CS2113 ip User Guide (by: 2020-09-24)
@@ -57,7 +55,6 @@ deadline complete CS2113 ip User Guide /by 2020-09-24
 
 ```
 deadline complete CS2113 ip User Guide /by next Thursday
-#
 #    ____________________________________________________________
 #    Got it. I've added this task:
 #        [D][✗] complete CS2113 ip User Guide (by: next Thursday)

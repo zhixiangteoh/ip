@@ -24,7 +24,6 @@ delete <index>
 
 ```
 list
-#
 #    ____________________________________________________________
 #    Here are the tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)
@@ -32,14 +31,12 @@ list
 #    3.[D][✓] complete 2113 homework (by: Sep 22 2020 11:59 PM)
 #    ____________________________________________________________
 delete 2
-#
 #    ____________________________________________________________
 #    Noted. I've removed this task:
 #      [D][✗] submit UG draft (by: today 2359)
 #    Now you have 2 tasks in the list.
 #    ____________________________________________________________
 list
-#
 #    ____________________________________________________________
 #    Here are the tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)

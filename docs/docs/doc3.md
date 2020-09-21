@@ -22,7 +22,6 @@ list
 
 ```
 list
-#
 #    ____________________________________________________________
 #    Here are the tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)

@@ -29,11 +29,11 @@ function Help(props) {
       title: 'Browse Docs',
     },
     {
-      content: `[Ask questions about the documentation and project](${repoUrl}issues)`,
+      content: `[Ask questions](${repoUrl}issues) about the documentation and project`,
       title: 'Join the community',
     },
     {
-      content: `[Find out what's new](${repoUrl}) with this project`,
+      content: `[Find out what's new](${repoUrl}releases) with this project`,
       title: 'Stay up to date',
     },
   ];

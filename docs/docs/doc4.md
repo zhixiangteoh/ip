@@ -25,7 +25,6 @@ Case where task is originally not done:
 
 ```
 list
-#
 #    ____________________________________________________________
 #    Here are the tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)
@@ -33,7 +32,6 @@ list
 #    3.[D][✓] complete 2113 homework (by: Sep 22 2020 11:59 PM)
 #    ____________________________________________________________
 done 2
-#
 #    ____________________________________________________________
 #    Nice! I've marked this task as done:
 #      [D][✓] submit UG draft (by: today 2359)
@@ -44,7 +42,6 @@ Case where task is originally done:
 
 ```
 list
-#
 #    ____________________________________________________________
 #    Here are the tasks in your list:
 #    1.[E][✗] CS2113 lecture on Friday 18 September 2020 (at: 4pm to 6pm)
@@ -52,7 +49,6 @@ list
 #    3.[D][✓] complete 2113 homework (by: Sep 22 2020 11:59 PM)
 #    ____________________________________________________________
 done 2
-#
 #    ____________________________________________________________
 #    Nice! I've marked this task as done:
 #      [D][✓] submit UG draft (by: today 2359)
