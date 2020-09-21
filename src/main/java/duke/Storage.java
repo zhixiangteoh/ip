@@ -1,7 +1,6 @@
 package duke;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 /**
  * Storage containing file and folder contents.
@@ -24,21 +23,16 @@ public class Storage {
     }
 
     /**
-     * Returns the save file. Creates folder/file if not initially present.
+     * Returns the save file. Creates folder if not initially present.
      *
      * @return save write file
-     * @throws FileNotFoundException
      */
-    public File load() throws FileNotFoundException {
+    public File load() {
         if (!folder.exists()) {
             System.out.println("Creating new folder 'data' in root directory:");
             folder.mkdir();
         }
 
-        if (file.exists()) {
-            return file;
-        } else {
-            throw new FileNotFoundException();
-        }
+        return file;
     }
 }
