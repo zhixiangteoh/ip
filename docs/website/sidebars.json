@@ -1,0 +1,26 @@
+{
+  "docs": {
+    "Preliminaries": [
+      "doc1",
+      "doc2"
+    ],
+    "Features": [
+      "doc3",
+      "doc4",
+      "doc5",
+      "doc6",
+      "doc7",
+      "doc8",
+      "doc9"
+    ],
+    "Exceptions": [
+      "doc10",
+      "doc11",
+      "doc12"
+    ],
+    "Command Summary": ["doc13"]
+  },
+  "docs-other": {
+    "First Category": ["doc14", "doc15"]
+  }
+}
