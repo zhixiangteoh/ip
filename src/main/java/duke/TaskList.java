@@ -63,12 +63,14 @@ public class TaskList {
      */
     public void loadTaskList() throws FileNotFoundException {
         File saveFile = storage.load();
-        if (saveFile.exists()) {
-            try {
-                readFileIntoTaskList(saveFile);
-            } catch (ParseException pe) {
-                System.out.println(pe.getMessage());
-            }
+        if (!saveFile.exists()) {
+            return;
+        }
+
+        try {
+            readFileIntoTaskList(saveFile);
+        } catch (ParseException pe) {
+            System.out.println(pe.getMessage());
         }
     }
 
