@@ -70,7 +70,7 @@ public class Deadline extends Task {
     public String getFileRepresentation() {
         // D | 0 | eat | 10am
         int isDoneBit = isDone() ? 1 : 0;
-        return SYMBOL_DEADLINE + " | " + isDoneBit + " | " + bareDesc + " | " + datetimeString;
+        return SYMBOL_DEADLINE + FILE_SEPARATOR_TOKEN + isDoneBit + FILE_SEPARATOR_TOKEN + bareDesc + FILE_SEPARATOR_TOKEN + datetimeString;
     }
 
     /**

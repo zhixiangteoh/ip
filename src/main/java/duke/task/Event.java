@@ -70,7 +70,7 @@ public class Event extends Task {
     public String getFileRepresentation() {
         // E | 0 | eat | 10am
         int isDoneBit = isDone() ? 1 : 0;
-        return SYMBOL_EVENT + " | " + isDoneBit + " | " + bareDesc + " | " + datetimeString;
+        return SYMBOL_EVENT + FILE_SEPARATOR_TOKEN + isDoneBit + FILE_SEPARATOR_TOKEN + bareDesc + FILE_SEPARATOR_TOKEN + datetimeString;
     }
 
     /**

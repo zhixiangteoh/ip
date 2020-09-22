@@ -28,7 +28,7 @@ public class ToDo extends Task {
     public String getFileRepresentation() {
         // T | 0 | eat
         int isDoneBit = isDone() ? 1 : 0;
-        return SYMBOL_TODO + " | " + isDoneBit + " | " + getTaskDesc();
+        return SYMBOL_TODO + FILE_SEPARATOR_TOKEN + isDoneBit + FILE_SEPARATOR_TOKEN + getTaskDesc();
     }
 
     /**

@@ -6,6 +6,7 @@ package duke.task;
 public class Task {
     private static final String TICK = "[✓]";
     private static final String CROSS = "[✗]";
+    static final String FILE_SEPARATOR_TOKEN = " | ";
 
     private String taskDesc;
     private boolean isDone;
