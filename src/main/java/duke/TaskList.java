@@ -180,7 +180,9 @@ public class TaskList {
 
     private String getDescFromInput(String userInputLine) {
         String taskDesc = "";
-        String[] taskDetails = userInputLine.split(" ", 2);
+        // split into 2 parts, command and description, by spaces delimiter.
+        String[] taskDetails = userInputLine.split("\\s+", 2);
+        // description in second part
         taskDesc = taskDetails[1];
 
         return taskDesc;
